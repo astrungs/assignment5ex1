@@ -1,24 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ReceivingVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ReceivingVC" customModule="assignment5ex1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yjk-9S-EzE">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="ReceivingVC" id="a4H-Ka-KQb">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DdD-G7-oBX">
+                                            <connections>
+                                                <segue destination="g2F-Bm-saa" kind="show" identifier="showSendingVC" id="eMZ-uX-Jq0"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TAP &quot;+&quot; TO SEND A MESSAGE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhY-fb-isX">
+                                <rect key="frame" x="16" y="78" width="343" height="569"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="receivingLabel" destination="YhY-fb-isX" id="cJw-0K-zju"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="669.60000000000002" y="33.733133433283363"/>
+        </scene>
+        <!--SendingVC-->
+        <scene sceneID="Hrr-Pg-shh">
+            <objects>
+                <viewController id="g2F-Bm-saa" customClass="SendingVC" customModule="assignment5ex1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Zb-tV-9rl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2G-dS-I9z">
+                                <rect key="frame" x="16" y="350" width="343" height="60"/>
+                                <color key="backgroundColor" red="0.093808363950000001" green="0.8218326104" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="s0z-Wb-8AN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="24"/>
+                                <state key="normal" title="SEND">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendBtnWasPressed:" destination="g2F-Bm-saa" eventType="touchUpInside" id="ycT-Hb-UO1"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Type message here..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JNc-9A-vVr">
+                                <rect key="frame" x="16" y="222" width="343" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="X2g-hq-2vC"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v2G-dS-I9z" firstAttribute="top" secondItem="JNc-9A-vVr" secondAttribute="bottom" constant="68" id="CQf-ib-9g5"/>
+                            <constraint firstItem="6GN-eU-NQa" firstAttribute="bottom" secondItem="v2G-dS-I9z" secondAttribute="bottom" constant="257" id="Git-0E-KOl"/>
+                            <constraint firstItem="6GN-eU-NQa" firstAttribute="trailing" secondItem="v2G-dS-I9z" secondAttribute="trailing" constant="16" id="XTA-8h-wt9"/>
+                            <constraint firstItem="JNc-9A-vVr" firstAttribute="top" secondItem="6GN-eU-NQa" secondAttribute="top" constant="202" id="Z0E-dr-JSa"/>
+                            <constraint firstItem="v2G-dS-I9z" firstAttribute="top" secondItem="JNc-9A-vVr" secondAttribute="bottom" constant="68" id="gN5-uH-20A"/>
+                            <constraint firstItem="JNc-9A-vVr" firstAttribute="leading" secondItem="6GN-eU-NQa" secondAttribute="leading" constant="16" id="xWd-LV-7tQ"/>
+                            <constraint firstItem="v2G-dS-I9z" firstAttribute="leading" secondItem="6GN-eU-NQa" secondAttribute="leading" constant="16" id="y99-H3-nAy"/>
+                            <constraint firstItem="6GN-eU-NQa" firstAttribute="trailing" secondItem="JNc-9A-vVr" secondAttribute="trailing" constant="16" id="zjn-1m-tCG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6GN-eU-NQa"/>
+                    </view>
+                    <connections>
+                        <outlet property="dataEntryTextField" destination="JNc-9A-vVr" id="H5o-Rf-QDG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0jH-Vm-WIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1604" y="34"/>
         </scene>
     </scenes>
 </document>
